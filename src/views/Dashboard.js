@@ -51,6 +51,7 @@ import img from './lbmin6.png'
 
 function Dashboard() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const navigate = useNavigate();
 
   const toggleDropdown = () => {
@@ -314,6 +315,16 @@ function Dashboard() {
             </Card>
           </Col>
         </Row>
+        <Modal isOpen={modalOpen} toggle={cancelLogout}>
+          <ModalHeader toggle={cancelLogout}>Confirm Logout</ModalHeader>
+          <ModalBody>
+            Are you sure you want to logout?
+          </ModalBody>
+          <ModalFooter>
+            <Button className="text-right" color="secondary" onClick={cancelLogout} style={{color:"white"}}>Cancel</Button>{' '}
+            <Button color="success" onClick={confirmLogout} style={{color:"white"}}>Logout</Button>
+          </ModalFooter>
+        </Modal>
       </div>
     </>
   );
